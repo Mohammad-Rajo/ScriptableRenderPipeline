@@ -33,6 +33,7 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
             public SerializedProperty fadeDistance;
             public SerializedProperty affectDiffuse;
             public SerializedProperty affectSpecular;
+            public SerializedProperty specularMultiplier;
             public SerializedProperty nonLightmappedOnly;
             public SerializedProperty lightTypeExtent;
             public SerializedProperty spotLightShape;
@@ -141,6 +142,7 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
                     fadeDistance = o.Find(x => x.fadeDistance),
                     affectDiffuse = o.Find(x => x.affectDiffuse),
                     affectSpecular = o.Find(x => x.affectSpecular),
+                    specularMultiplier = o.Find(x => x.specularMultiplier),
                     nonLightmappedOnly = o.Find(x => x.nonLightmappedOnly),
                     lightTypeExtent = o.Find(x => x.lightTypeExtent),
                     spotLightShape = o.Find(x => x.spotLightShape),
@@ -546,6 +548,7 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
                 EditorGUI.indentLevel++;
                 EditorGUILayout.PropertyField(m_AdditionalLightData.affectDiffuse, s_Styles.affectDiffuse);
                 EditorGUILayout.PropertyField(m_AdditionalLightData.affectSpecular, s_Styles.affectSpecular);
+                EditorGUILayout.PropertyField(m_AdditionalLightData.specularMultiplier, s_Styles.specularMultiplier);
                 if (m_LightShape != LightShape.Directional)
                     EditorGUILayout.PropertyField(m_AdditionalLightData.fadeDistance, s_Styles.fadeDistance);
                 EditorGUILayout.PropertyField(m_AdditionalLightData.lightDimmer, s_Styles.lightDimmer);

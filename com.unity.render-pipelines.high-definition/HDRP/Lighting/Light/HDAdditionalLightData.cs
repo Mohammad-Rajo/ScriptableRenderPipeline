@@ -97,6 +97,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
         public bool affectDiffuse = true;
         public bool affectSpecular = true;
+        public float specularMultiplier = 1.0f;
 
         // This property work only with shadow mask and allow to say we don't render any lightMapped object in the shadow map
         public bool nonLightmappedOnly = false;

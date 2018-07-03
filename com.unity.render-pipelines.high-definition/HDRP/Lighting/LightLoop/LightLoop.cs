@@ -843,7 +843,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             var directionalLightData = new DirectionalLightData();
 
             float diffuseDimmer = m_FrameSettings.diffuseGlobalDimmer * additionalData.lightDimmer;
-            float specularDimmer = m_FrameSettings.specularGlobalDimmer * additionalData.lightDimmer;
+            float specularDimmer = m_FrameSettings.specularGlobalDimmer * additionalData.lightDimmer * additionalData.specularMultiplier;
             if (diffuseDimmer  <= 0.0f && specularDimmer <= 0.0f)
                 return false;
             // Light direction for directional is opposite to the forward direction
@@ -1028,7 +1028,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             float lightScale = additionalLightData.lightDimmer * distanceFade;
 
             lightData.diffuseScale = additionalLightData.affectDiffuse ? lightScale * m_FrameSettings.diffuseGlobalDimmer : 0.0f;
-            lightData.specularScale = additionalLightData.affectSpecular ? lightScale * m_FrameSettings.specularGlobalDimmer : 0.0f;
+            lightData.specularScale = additionalLightData.affectSpecular ? lightScale * m_FrameSettings.specularGlobalDimmer * additionalLightData.specularMultiplier : 0.0f;
 
             lightData.volumetricDimmer = additionalLightData.volumetricDimmer;
 
